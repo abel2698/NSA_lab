@@ -1,0 +1,161 @@
+1
+
+exam@debian:~$ mkdir fisat
+exam@debian:~$ ls
+Desktop    Downloads  Music     Public       Templates
+Documents  fisat      Pictures  public_html  Videos
+exam@debian:~$ cd fisat
+exam@debian:~/fisat$ mkdir day1
+exam@debian:~/fisat$ mkdir day2
+exam@debian:~/fisat$ mkdir day3
+exam@debian:~/fisat$ ls
+day1  day2  day3
+exam@debian:~/fisat$ 
+
+exam@debian:~/fisat$ cd day1
+exam@debian:~/fisat/day1$ cat > f1.txt
+file 1 ^Z
+[1]+  Stopped                 cat > f1.txt
+exam@debian:~/fisat/day1$ cat > f2.txt
+file 2^Z
+[2]+  Stopped                 cat > f2.txt
+exam@debian:~/fisat/day1$ cat > f3.txt
+file 3^Z
+[3]+  Stopped                 cat > f3.txt
+exam@debian:~/fisat/day1$ ls
+f1.txt  f2.txt  f3.txt
+exam@debian:~/fisat/day1$ 
+
+exam@debian:~/fisat/day1$ cd ..
+exam@debian:~/fisat$ cd day2
+exam@debian:~/fisat/day2$ cat > m1.txt
+file created m1^Z
+[4]+  Stopped                 cat > m1.txt
+exam@debian:~/fisat/day2$ cat > m2.txt
+file created m2^Z
+[5]+  Stopped                 cat > m2.txt
+exam@debian:~/fisat/day2$ ls
+m1.txt  m2.txt
+exam@debian:~/fisat/day2$ 
+
+exam@debian:~/fisat/day2$ cd ..
+exam@debian:~/fisat$ cd day3
+exam@debian:~/fisat/day3$ cat > c1.txt
+day3 file 1^Z
+[6]+  Stopped                 cat > c1.txt
+exam@debian:~/fisat/day3$ cat > c2.txt
+day3 file 2^Z
+[7]+  Stopped                 cat > c2.txt
+exam@debian:~/fisat/day3$ ls
+c1.txt  c2.txt
+exam@debian:~/fisat/day3$ 
+
+
+1
+exam@debian:~/fisat/day2$ cat m1.txt m2.txt >m3.txt
+exam@debian:~/fisat/day2$ ls
+m1.txt  m2.txt  m3.txt
+exam@debian:~/fisat/day2$ 
+
+
+2
+exam@debian:~/fisat/day2$ cp -i m3.txt /home/exam/fisat/day3/c3.txt
+exam@debian:~/fisat/day2$ cd ..
+exam@debian:~/fisat$ cd day3
+exam@debian:~/fisat/day3$ ls
+c1.txt  c2.txt  c3.txt
+exam@debian:~/fisat/day3$ 
+
+3
+exam@debian:~/fisat/day1$ chmod a+w f1.txt
+exam@debian:~/fisat/day1$
+
+
+4
+exam@debian:~/fisat$ ps
+    PID TTY          TIME CMD
+   5482 pts/0    00:00:00 bash
+   5587 pts/0    00:00:00 cat
+   5648 pts/0    00:00:00 cat
+   5686 pts/0    00:00:00 cat
+   5724 pts/0    00:00:00 cat
+   5726 pts/0    00:00:00 cat
+   5762 pts/0    00:00:00 cat
+   5796 pts/0    00:00:00 cat
+   5879 pts/0    00:00:00 ps
+exam@debian:~/fisat$ 
+
+6
+exam@debian:~/fisat$ pwd
+/home/exam/fisat
+exam@debian:~/fisat$ 
+
+
+7
+echo "1. area of circle"
+echo "2. area of rectangle"
+echo "3. area of triangle"
+echo "ENTER YOUR OPTION"
+read ch
+case $ch in
+1)echo "enter the radious r"
+  read r
+  ar1=$(( $r * $r ))
+  ar2=$(( 314 / 100 ))
+  area=$(( $ar1 * $ar2 ))
+  echo "area = $area";;
+2)echo "enter the lenght and breadth "
+  read l
+  read b
+  area=$(( $l * $b ))
+  echo "area = $area";;
+3)echo "enter the length and height"
+  read l
+  read h
+  a=2
+  ar=$(( $l * $h ))
+  area=$(( $ar / 2 ))
+  echo "area = $area";;
+
+esac
+
+OP
+  
+exam@debian:~$ ./2.sh
+1. area of circle
+2. area of rectangle
+3.area of triangle
+ENTER YOUR OPTION
+3
+enter the length and height
+5
+10
+area = 25
+
+exam@debian:~$ ./2.sh
+1. area of circle
+2. area of rectangle
+3.area of triangle
+ENTER YOUR OPTION
+1
+enter the radious r
+4
+area = 48
+
+exam@debian:~$ ./2.sh
+1. area of circle
+2. area of rectangle
+3. area of triangle
+ENTER YOUR OPTION
+2
+enter the lenght and breadth 
+50
+100
+area = 5000
+
+  
+
+
+
+
+
